@@ -503,7 +503,7 @@ out:
   // The shared memory segment is created and mapped. Initialize it.
   int ret = __machnet_channel_dataplane_init(
       (uchar_t *)channel, *channel_mem_size, *is_posix_shm, channel_name,
-      machnet_ring_slot_nr, app_ring_slot_nr, buf_ring_slot_nr, buffer_size, 1);
+      machnet_ring_slot_nr, app_ring_slot_nr, buf_ring_slot_nr, buffer_size, 0);
   if (ret != 0) {
     __machnet_channel_destroy((void *)channel, *channel_mem_size, shm_fd,
                               *is_posix_shm, channel_name);
