@@ -511,9 +511,9 @@ template <class T = Channel,
                                       std::is_same<T, ShmChannel>::value>::type>
 class ChannelManager {
  public:
-  static constexpr size_t kMaxChannelNr = 32;
-  static constexpr size_t kDefaultRingSize = 256;
-  static constexpr size_t kDefaultBufferCount = 4096;
+  static constexpr size_t kMaxChannelNr = 4000;
+  static constexpr size_t kDefaultRingSize = 1024;
+  static constexpr size_t kDefaultBufferCount = 16384;
   ChannelManager() {}
   ChannelManager(const ChannelManager &) = delete;
   ChannelManager &operator=(const ChannelManager &) = delete;

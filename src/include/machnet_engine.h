@@ -346,7 +346,7 @@ class MachnetEngine {
   using Flow = net::flow::Flow;
   using PmdPort = juggler::dpdk::PmdPort;
   // Slow timer (periodic processing) interval in microseconds.
-  const size_t kSlowTimerIntervalUs = 1000000;  // 2ms
+  const size_t kSlowTimerIntervalUs = 100000;  // 2ms
   const size_t kPendingRequestTimeoutSlowTicks = 3;
   // Flow creation timeout in slow ticks (# of periodic executions since
   // flow creation request).
