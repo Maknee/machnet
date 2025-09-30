@@ -9,6 +9,11 @@ set(BUILD_TESTING OFF) # Disable testing for third-party modules
 # SET(BUILD_STATIC_LIBS ON)
 SET(BUILD_gflags_nothreads_LIBS ON)
 SET(BUILD_gflags_LIBS ON)
+SET(INSTALL_HEADERS OFF)
+SET(INSTALL_SHARED_LIBS OFF)
+SET(INSTALL_STATIC_LIBS OFF)
+SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
+SET(NAMESPACE "google;gflags")
 add_subdirectory(third_party/gflags)
 include_directories(SYSTEM "${CMAKE_CURRENT_BINARY_DIR}/third_party/gflags/include/")
 
@@ -17,8 +22,8 @@ find_package(gflags)
 # Glog doesn't correctly define its include directories, so we need to specify
 # manually
 add_subdirectory(third_party/glog)
-include_directories(SYSTEM third_party/glog/src)
-include_directories(SYSTEM ${CMAKE_BINARY_DIR}/third_party/glog)
+include_directories(BEFORE third_party/glog/src)
+include_directories(BEFORE ${CMAKE_BINARY_DIR}/third_party/glog)
 
 add_subdirectory(third_party/googletest)
 include_directories(SYSTEM third_party/googletest/googlemock/include)

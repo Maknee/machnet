@@ -20,7 +20,7 @@ set(CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointe
 
 # Include 'libdpdk'.
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIBDPDK_STATIC libdpdk>=23.11 libdpdk<24.0 REQUIRED IMPORTED_TARGET)
+pkg_check_modules(LIBDPDK_STATIC libdpdk>=21.11 libdpdk<24.0 REQUIRED IMPORTED_TARGET)
 
 include_directories(ext)
 add_subdirectory(ext)
