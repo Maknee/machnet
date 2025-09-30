@@ -443,7 +443,7 @@ int machnet_connect(void *channel_ctx, const char *src_ip, const char *dst_ip,
   do {
     ret = __machnet_channel_ctrl_cq_dequeue(ctx, 1, &resp);
     if (ret != 0) break;
-    nanosleep(&(struct timespec){{.tv_sec = 0, .tv_nsec = 1000 * 1000}}, NULL);
+    nanosleep(&(struct timespec){.tv_sec = 0, .tv_nsec = 1000 * 1000}, NULL);
   } while (max_tries-- > 0);
   if (ret == 0) {
     fprintf(stderr, "ERROR: Failed to dequeue response from control queue.\n");
@@ -495,7 +495,7 @@ int machnet_listen(void *channel_ctx, const char *local_ip,
   do {
     ret = __machnet_channel_ctrl_cq_dequeue(ctx, 1, &resp);
     if (ret != 0) break;
-    nanosleep(&(struct timespec){{.tv_sec = 0, .tv_nsec = 1000 * 1000}}, NULL);
+    nanosleep(&(struct timespec){.tv_sec = 0, .tv_nsec = 1000 * 1000}, NULL);
   } while (max_tries-- > 0);
   if (ret == 0) {
     fprintf(stderr, "ERROR: Failed to dequeue response from control queue.\n");
